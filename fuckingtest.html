@@ -1,0 +1,50 @@
+<div id="app">
+    <h1>{{title}}</h1>
+    <div id="">
+<!--       dropdown-->
+        <select v-model="genre">
+                 <option value="" selected>Select Genre</option> 
+                 <option value="fiction">Fiction</option>
+                 <option value="non-fiction">Non-Fiction</option>
+               </select>
+    </div>
+<!--    table-->
+    <div id="display-books" v-for=" book in books | match genre in 'genre' ">
+        <span>Title: {{book.title}}</span>
+        <span>Author: {{book.author}}</span>
+    </div>
+</div>
+
+Vue.filter('match', function(value, input) { return input ? value.filter(function(item) { return item.genre === input ? value : null; }) : value; });
+
+<!--dropdown-->
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">States</button>
+
+    <select v-model="selectedState">
+                            <option value="" selected>--All--</option>
+                            <option  v-for="senator in senators"  value="{{senator.state}}"  >{{senator.state}}</option>
+                         </select>
+    
+    <!--                     v-if="senator.state=={{selectedState}}"-->
+</div>
+
+<!--table-->
+<div class="wrapper">
+    <tr v-for="senator in senators | stateFilter state in 'state">
+        <!--v-if="selectedState == senator.state"-->
+        <td id="fullname"><a href="{{senator.url}}">{{senator.first_name}} {{senator.middle_name || ""}}, {{senator.last_name}}</a></td>
+
+        <td>{{senator.party}}</td>
+        <td>{{senator.state}}</td>
+        <td>{{senator.seniority}}</td>
+        <td>{{senator.votes_with_party_pct}}</td>
+    </tr>
+</div>
+
+
+Vue.filter('stateFilter', function(value, input) {
+  return input ? value.filter(function(item) {
+    return item.state === input ? value : null;
+  }) : value;
+});

@@ -1,0 +1,181 @@
+/*HOME*/
+
+/*
+.html {
+    position: relative;
+    min-height: 100%;
+}
+*/
+/*HOME*/
+.body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    position: relative;
+}
+.image_home {
+    position:absolute;
+    background-image: url(noun_4439_cc.png);
+    height: 350px;
+    width: 350px;
+    margin-left: 820px;
+    margin-top: 240px;
+    z-index: 2;
+    background-size: 350px 350px;
+    
+}
+.watermark_cover {
+     position:absolute;
+    background-color: white;
+    height: 100px;
+    width: 170px;
+    margin-left: 800px;
+    margin-top: 510px;
+    z-index: 3;
+    background-size: 350px 350px;
+}
+.navi{
+    margin-top: 115px;
+    
+}
+.about {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.about_starter{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.subcontainer1 {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.top1 {
+    flex: 1;
+}
+.top2 {
+    flex: 1;
+}
+.glance_header {
+    text-indent: 260px;
+}
+.subcontainer2 {
+    flex :1;
+    display: flex;
+    flex-direction: row;
+}
+.bot1 {
+    flex: 1;
+}
+.bot2 {
+    flex: 1;
+}
+.break {
+    flex-basis: 100px;
+}
+.about_logo {
+    width: 350px;
+    height: 120px;
+    position: absolute;
+    background-image: url(free_horizontal_on_white_by_logaster.png);
+    
+    
+}
+.about_text {
+    flex: 1;
+}
+.home_footer {
+    flex: 1;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #333;
+    color: whitesmoke;
+}
+.btn-info {
+    background-color:  #333;
+}
+
+.btn-info:hover {
+    background-color:  grey;
+}
+/*SENATE*/
+
+.body_senate {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.navi_senate {
+    flex: 1
+}
+.topic {
+    font-size: 40px;
+}
+.txt {
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+/*COLORBOX*/
+iframe.cboxIframe {
+    height: 500px;
+    width: 500px;
+}
+#cboxContent {
+    height: 500px !important;
+    width: 500px !important;
+}
+#cboxLoadedContent {
+    height: 500px !important;
+    width: 500px !important;
+}
+#cboxWrapper {
+    height: 500px !important;
+    width: 500px !important;                                                        
+}
+#colorbox {
+    height: 500px !important;
+    width:  500px !important;
+}
+.overlay {
+/*
+    background: #e9e9e9;
+    display: ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 20px;
+*/
+     position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+.dataTables_info {
+    display: none;
+}
+
+
+
+
+
+

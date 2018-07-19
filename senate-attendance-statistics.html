@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style%20for%20TGIF/style_TGIF.css" />
+    <title>senate attendance </title>
+
+</head>
+
+<body class="body">
+    <div class="about_logo">
+
+    </div>
+    <div class="navi">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!--
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">You are on TGIF home page</a>
+                </div>
+-->
+                <ul class="nav navbar-nav">
+                    <li><a href="home-starter-page.html">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="house-starter-page.html">House</a></li>
+                            <li><a href="senate-starter-page.html">Senate</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="active" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="senate-attendance-statistics.html">Senate</a></li>
+                            <li><a href="house_attendance.html">House</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="house_loyalty.html">House</a></li>
+                            <li><a href="senate_loyalty.html">Senate</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+             
+            </div>
+        </nav>
+    </div>
+
+    <header>
+        <div>
+        </div>
+    </header>
+    <!--Table container-->
+    <div class="about" class="container" id="app">
+        <div class="subcontainer1">
+            <div class="top1">
+                <h2 class="topic">Attendance</h2>
+                <p class="txt">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+
+                <p class="txt">The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+            </div>
+            <div class="break">
+
+            </div>
+
+
+
+            <!--        VUE-->
+            <!--        VUE BULLSHIT HERE-->
+            <div class="top2">
+                <h2 class="glance_header">Senate at a glance</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Party</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table table-striped">
+                        <tr>
+                            <td>Democrats</td>
+                            <td>{{values.numberOfDem}}</td>
+                            <td>{{values.averageVoteWithDems}}</td>
+                        </tr>
+                        <tr>
+                            <td>Republicans</td>
+                            <td>{{values.numberOfRep}}</td>
+                            <td>{{values.averageVoteWithReps}}</td>
+                        </tr>
+                        <tr>
+                            <td>Independent</td>
+                            <td>{{values.numberOfInd}}</td>
+                            <td>{{values.averageVoteWithInd}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>{{values.numberTotal}}</td>
+                            <td>{{values.averageVoteTotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--LEAST ATTENDANCE-->
+        <div class="subcontainer2">
+            <div class="bot1">
+                <h2>Least Attendance (Bottom 10% of Party)</h2>
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>No. Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-striped">
+                        <tr v-for="member in values.leastAttendanceMembers">
+                            <td id="fullname"><a class="iframe" :href=member.url>{{member.first_name}} {{member.middle_name || ""}}, {{member.last_name}}</a></td>
+                            <td>{{member.missed_votes}}</td>
+                            <td>{{member.missed_votes_pct}}</td>
+                            <!--                    {{senator.first_name}} {{senator.middle_name || ""}}, {{senator.last_name}}-->
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="break">
+
+            </div>
+            <!--MOST ATTENDANCE-->
+            <div class="bot2">
+                <h2>Most Attendance (Bottom 10% of Party)</h2>
+                <table id="myTable2" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>No. Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+                    <tbody  class="table table-striped">
+                        <tr v-for="member in values.mostAttendanceMembers">
+                            <td id="fullname"><a class="iframe" :href="member.url">{{member.first_name}} {{member.middle_name || ""}}, {{member.last_name}}</a></td>
+                            <td>{{member.missed_votes}}</td>
+                            <td>{{member.missed_votes_pct}}</td>
+                            <!--                    {{senator.first_name}} {{senator.middle_name || ""}}, {{senator.last_name}}-->
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="home_footer">
+
+        <p class="footer_p"> © 2018 TGIF | All Rights Reserved </p>
+
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--        <script src="pro-congress-senate.js"></script>-->
+    <script src="senateAttendance.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+    <script src="jquery.colorbox-min.js"></script>
+    <script src="jquery.colorbox.js"></script>
+    <!--    <script src="colorbox.css"></script>-->
+</body>
+
+</html>
